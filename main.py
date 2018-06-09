@@ -22,34 +22,34 @@ def photo_objects():
         photos.append(pic)
 
 
+def sort_files(photos):
+    """ Output valid photo files """
+    print(sorted(photos))
+
+
 def validate_photos(file_array):
-    """ Return list of files with valid filetypes """
+    """ Send validated files to get sorted """
     def func(pic): return os.path.splitext(pic)[1].lower() in FILETYPES
-    return list(filter(func, file_array))
+    sort_files(list(filter(func, file_array)))
 
 
 def get_files(path):
-    """ Return list of filenames in path """
-    return os.listdir(path)
+    """ Send files from directory to validation """
+    validate_photos(os.listdir(path))
 
 
 def get_path():
-    """ Get folder path that has files """
-    return 'pictures'  # input('Enter folder path: ')
-
-
-def sort_files(photos):
-    """ Sort valid photo files """
-    return sorted(photos)
+    """ Send directory with files to get_files """
+    get_files('pictures')  # switch for input('Enter folder path: ')
 
 
 def main():
-    path = get_path()
-    file_array = get_files(path)
-    photos = validate_photos(file_array)
-    sorted_photos = sort_files(photos)
-    print(sorted_photos)
-
+    get_path()
+    # path = get_path()
+    # file_array = get_files(path)
+    # photos = validate_photos(file_array)
+    # sorted_photos = sort_files(photos)
+    # print(sorted_photos)
 
 if __name__ == '__main__':
     main()
