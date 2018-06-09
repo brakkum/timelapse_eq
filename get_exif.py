@@ -1,6 +1,6 @@
 import exifread, os
+from file_types import FILETYPES
 
-FILETYPES = ['.jpg','.jpeg','.nef','.tiff']
 i = 1
 
 path = input('Input folder name: ') # folder name

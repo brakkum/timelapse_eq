@@ -1,12 +1,13 @@
 import exifread, os, rawpy
 from photo import Photo
 from PIL import Image   
+from file_types import FILETYPES
 
 
-def get_photos():
-    path = 'pictures' #input('Enter folder path: ')
-    files = os.listdir(path)
+
+def photo_objects():
     photos = []
+    print(files)
     for file in files:
         opened = open(path + '/' + file, 'rb')
         tags = exifread.process_file(opened)
@@ -18,21 +19,32 @@ def get_photos():
             diff = tags['MakerNote ExposureDifference']
             )
         photos.append(pic)
-    return photos
 
-def compare_photos(originals):
-    print(originals)
+def valid_photos(fileArray):
+    return list(filter(lambda pic: os.path.splitext(pic)[1].lower() in FILETYPES, fileArray))
+
+def get_files(path):
+    return os.listdir(path)
+
+def get_path():
+    return 'pictures' #input('Enter folder path: ')
+
+def sort_files(photos):
+    return sorted(photos)
 
 def main():
-    originals = get_photos()
-    compare_photos(originals)
+    path = get_path()
+    fileArray = get_files(path)
+    photos = valid_photos(fileArray)
+    sortedPhotos = sort_files(photos)
+    print(sortedPhotos)
 
-# if __name__ == '__main__':
-#     main()
+if __name__ == '__main__':
+    main()
 
-raw = rawpy.imread('pictures/nef.nef')
-rgb = raw.postprocess()
-raw.close()
-img = Image.fromarray(rgb) # Pillow image
-# img.show()
-img.save('rawpytests/nef_test.tiff')
+# raw = rawpy.imread('pictures/nef.nef')
+# rgb = raw.postprocess()
+# raw.close()
+# img = Image.fromarray(rgb) # Pillow image
+# # img.show()
+# img.save('rawpytests/nef_test.tiff')
