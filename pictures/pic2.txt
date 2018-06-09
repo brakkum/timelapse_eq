@@ -1,0 +1,57 @@
+nef copy.tiff
+Image ImageWidth_____________________________:3264
+Image ImageLength____________________________:4928
+Image BitsPerSample__________________________:[16, 16, 16, 16]
+Image Compression____________________________:Uncompressed
+Image PhotometricInterpretation______________:2
+Image FillOrder______________________________:1
+Image Make___________________________________:NIKON CORPORATION
+Image Model__________________________________:NIKON D5100
+Image StripOffsets___________________________:[542, 131102, 261662, 392222, 522782, 653342, 783902, 914462, 1045022, 1175582, 1306142, 1436702, 1567262, 1697822, 1828382, 1958942, 2089502, 2220062, 2350622, 2481182, ... ]
+Image Orientation____________________________:Horizontal (normal)
+Image SamplesPerPixel________________________:4
+Image RowsPerStrip___________________________:5
+Image StripByteCounts________________________:[130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, 130560, ... ]
+Image PlanarConfiguration____________________:1
+Image ResolutionUnit_________________________:Pixels/Inch
+Image Software_______________________________:Ver.1.01 
+Image DateTime_______________________________:2018:05:04 06:18:01
+Image ExtraSamples___________________________:Associated Alpha
+Image SampleFormat___________________________:UnsignedUnsignedUnsignedUnsigned
+Image ApplicationNotes_______________________:[60, 120, 58, 120, 109, 112, 109, 101, 116, 97, 32, 120, 109, 108, 110, 115, 58, 120, 61, 34, ... ]
+Image IPTC/NAA_______________________________:[28, 1, 90, 0, 3, 27, 37, 71, 28, 2, 0, 0, 2, 0, 2, 28, 2, 63, 0, 6, ... ]
+Image ExifOffset_____________________________:8
+Image InterColorProfile______________________:[0, 0, 2, 48, 65, 68, 66, 69, 2, 16, 0, 0, 109, 110, 116, 114, 82, 71, 66, 32, ... ]
+EXIF ExposureTime____________________________:1/4000
+EXIF FNumber_________________________________:0
+EXIF ExposureProgram_________________________:Manual
+EXIF ISOSpeedRatings_________________________:200
+EXIF SensitivityType_________________________:Recommended Exposure Index
+EXIF DateTimeOriginal________________________:2018:05:04 06:18:01
+EXIF DateTimeDigitized_______________________:2018:05:04 06:18:01
+EXIF ExposureBiasValue_______________________:0
+EXIF MaxApertureValue________________________:0
+EXIF MeteringMode____________________________:CenterWeightedAverage
+EXIF LightSource_____________________________:Unknown
+EXIF Flash___________________________________:Flash did not fire
+EXIF FocalLength_____________________________:0
+EXIF UserComment_____________________________:www.brakkephotography.com           
+EXIF SubSecTime______________________________:00
+EXIF SubSecTimeOriginal______________________:00
+EXIF SubSecTimeDigitized_____________________:00
+EXIF ExifImageWidth__________________________:3264
+EXIF ExifImageLength_________________________:4928
+EXIF SensingMethod___________________________:One-chip color area
+EXIF FileSource______________________________:Digital Camera
+EXIF SceneType_______________________________:Directly Photographed
+EXIF CustomRendered__________________________:Normal
+EXIF ExposureMode____________________________:Manual Exposure
+EXIF WhiteBalance____________________________:Auto
+EXIF DigitalZoomRatio________________________:1
+EXIF FocalLengthIn35mmFilm___________________:0
+EXIF SceneCaptureType________________________:Standard
+EXIF GainControl_____________________________:None
+EXIF Contrast________________________________:Normal
+EXIF Saturation______________________________:Normal
+EXIF Sharpness_______________________________:Soft
+EXIF SubjectDistanceRange____________________:0

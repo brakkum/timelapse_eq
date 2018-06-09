@@ -1,0 +1,117 @@
+Image SubfileType_________________________________ : Reduced-resolution image
+Image ImageWidth__________________________________ : 160            
+Image ImageLength_________________________________ : 120            
+Image BitsPerSample_______________________________ : [8, 8, 8]      
+Image Compression_________________________________ : Uncompressed   
+Image PhotometricInterpretation___________________ : 2              
+Image Make________________________________________ : NIKON CORPORATION
+Image Model_______________________________________ : NIKON D5100    
+Image StripOffsets________________________________ : 143708         
+Image Orientation_________________________________ : Rotated 90 CCW 
+Image SamplesPerPixel_____________________________ : 3              
+Image RowsPerStrip________________________________ : 120            
+Image StripByteCounts_____________________________ : 57600          
+Image XResolution_________________________________ : 300            
+Image YResolution_________________________________ : 300            
+Image PlanarConfiguration_________________________ : 1              
+Image ResolutionUnit______________________________ : Pixels/Inch    
+Image Software____________________________________ : Ver.1.01       
+Image DateTime____________________________________ : 2018:05:04 06:18:04
+Image Tag 0x014A__________________________________ : [201308, 201428]
+Image ReferenceBlackWhite_________________________ : [0, 255, 0, 255, 0, 255]
+Image ExifOffset__________________________________ : 480            
+GPS GPSVersionID__________________________________ : [2, 3, 0, 0]   
+Image GPSInfo_____________________________________ : 143690         
+Image DateTimeOriginal____________________________ : 2018:05:04 06:18:04
+Image Tag 0x9216__________________________________ : [1, 0, 0, 0]   
+EXIF ExposureTime_________________________________ : 1/4000         
+EXIF FNumber______________________________________ : 0              
+EXIF ExposureProgram______________________________ : Manual         
+EXIF ISOSpeedRatings______________________________ : 200            
+EXIF SensitivityType______________________________ : Recommended Exposure Index
+EXIF DateTimeOriginal_____________________________ : 2018:05:04 06:18:04
+EXIF DateTimeDigitized____________________________ : 2018:05:04 06:18:04
+EXIF ExposureBiasValue____________________________ : 0              
+EXIF MaxApertureValue_____________________________ : 0              
+EXIF MeteringMode_________________________________ : CenterWeightedAverage
+EXIF LightSource__________________________________ : Unknown        
+EXIF Flash________________________________________ : Flash did not fire
+EXIF FocalLength__________________________________ : 0              
+EXIF MakerNote____________________________________ : [78, 105, 107, 111, 110, 0, 2, 16, 0, 0, 77, 77, 0, 42, 0, 0, 0, 8, 0, 58, ... ]
+EXIF UserComment__________________________________ : www.brakkephotography.com           
+EXIF SubSecTime___________________________________ : 30             
+EXIF SubSecTimeOriginal___________________________ : 30             
+EXIF SubSecTimeDigitized__________________________ : 30             
+EXIF SensingMethod________________________________ : One-chip color area
+EXIF FileSource___________________________________ : Digital Camera 
+EXIF SceneType____________________________________ : Directly Photographed
+EXIF CVAPattern___________________________________ : [0, 2, 0, 2, 0, 1, 1, 2]
+EXIF CustomRendered_______________________________ : Normal         
+EXIF ExposureMode_________________________________ : Manual Exposure
+EXIF WhiteBalance_________________________________ : Auto           
+EXIF DigitalZoomRatio_____________________________ : 1              
+EXIF FocalLengthIn35mmFilm________________________ : 0              
+EXIF SceneCaptureType_____________________________ : Standard       
+EXIF GainControl__________________________________ : None           
+EXIF Contrast_____________________________________ : Normal         
+EXIF Saturation___________________________________ : Normal         
+EXIF Sharpness____________________________________ : Soft           
+EXIF SubjectDistanceRange_________________________ : 0              
+MakerNote MakernoteVersion________________________ : 0210           
+MakerNote ISOSetting______________________________ : È              
+MakerNote Quality_________________________________ : RAW            
+MakerNote Whitebalance____________________________ : AUTO           
+MakerNote FocusMode_______________________________ : MANUAL         
+MakerNote FlashSetting____________________________ : REAR           
+MakerNote AutoFlashMode___________________________ :                    
+MakerNote WhiteBalanceBias________________________ : [0, 0]         
+MakerNote WhiteBalanceRBCoeff_____________________ : [507/256, 353/256, 1, 1]
+MakerNote ProgramShift____________________________ : 0 EV           
+MakerNote ExposureDifference______________________ : +1.25 1/4 EV   
+MakerNote NikonPreview____________________________ : 16126          
+MakerNote FlashCompensation_______________________ : 0 EV           
+MakerNote ISOSpeedRequested_______________________ : [0, 200]       
+MakerNote ExternalFlashExposureComp_______________ : 0 EV           
+MakerNote FlashBracketCompensationApplied_________ : 0 EV           
+MakerNote AEBracketCompensationApplied____________ : 0              
+MakerNote CropHiSpeed_____________________________ : [0, 4992, 3280, 4992, 3280, 0, 0]
+MakerNote ExposureTuning__________________________ : [0, 1, 6]      
+MakerNote SerialNumber____________________________ : 3152403        
+MakerNote ColorSpace______________________________ : 1              
+MakerNote VRInfo__________________________________ : [48, 49, 48, 48, 2, 2, 0, 0]
+MakerNote ActiveDLighting_________________________ : 0              
+MakerNote PictureControl__________________________ : [48, 49, 48, 48, 78, 69, 85, 84, 82, 65, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote WorldTime_______________________________ : [254, 152, 0, 2]
+MakerNote ISOInfo_________________________________ : [72, 1, 12, 0, 0, 0, 72, 1, 12, 0, 0, 0, 0, 0]
+MakerNote Tag 0x002B______________________________ : [48, 49, 48, 48, 0, 0, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x002C______________________________ : [48, 49, 48, 49, 35, 0, 1, 129, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x002D______________________________ : [512, 0, 0]    
+MakerNote Tag 0x0032______________________________ : [48, 49, 48, 48, 0, 0, 0, 1]
+MakerNote LensType________________________________ : 1              
+MakerNote LensMinMaxFocalMaxAperture______________ : [0, 0, 0, 0]   
+MakerNote FlashMode_______________________________ : Did Not Fire   
+MakerNote BracketingMode__________________________ : Continuous, no bracketing
+MakerNote AutoBracketRelease______________________ : 1              
+MakerNote LensFStops______________________________ : [0, 1, 12, 0]  
+MakerNote NEFCurve1_______________________________ : [73, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote ShotInfo________________________________ : []             
+MakerNote Compression_____________________________ : 4              
+MakerNote NoiseReduction__________________________ : OFF            
+MakerNote NEFCurve2_______________________________ : [68, 32, 5, 32, 5, 32, 5, 32, 5, 32, 1, 1, 0, 0, 0, 64, 0, 128, 0, 192, ... ]
+MakerNote ColorBalance____________________________ : [48, 50, 49, 54, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote LensData________________________________ : [48, 50, 48, 52, 117, 220, 10, 255, 187, 62, 136, 153, 113, 16, 118, 163, 151, 82, 212, 29, 45, 4, 162, 7, 51, 38, 224, 97, 169, 184, 142, 43, 143]
+MakerNote RawImageCenter__________________________ : [2496, 1640]   
+MakerNote Tag 0x009D______________________________ : 0              
+MakerNote RetouchHistory__________________________ : [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote Tag 0x00A3______________________________ : 0              
+MakerNote Tag 0x00A4______________________________ : [48, 50, 48, 48]
+MakerNote TotalShutterReleases____________________ : 43496          
+MakerNote FlashInfo_______________________________ : [48, 49, 48, 52, 0, 0, 0, 0, 0, 0, 0, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote DigitalVariProgram______________________ :                
+MakerNote MultiExposure___________________________ : [48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote HighISONoiseReduction___________________ : 0              
+MakerNote PowerUpTime_____________________________ : [7, 226, 5, 4, 6, 15, 59, 0]
+MakerNote AFInfo2_________________________________ : [48, 49, 48, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+MakerNote FileInfo________________________________ : [48, 49, 48, 48, 0, 0, 0, 101, 0, 31, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, ... ]
+MakerNote Tag 0x00BB______________________________ : [48, 50, 48, 48, 255, 255, 255, 0]
+MakerNote Tag 0x00BC______________________________ : []             
