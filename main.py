@@ -1,5 +1,6 @@
 import exifread
 import os
+import subprocess
 import rawpy
 from photo import Photo
 from PIL import Image
@@ -24,35 +25,62 @@ def photo_objects():
 
 def sort_files(photos):
     """ Output valid photo files """
-    print(sorted(photos))
+    return sorted(photos)
+
+
+def is_image(pic):
+    return os.path.splitext(pic)[1].lower() in FILETYPES
 
 
 def validate_photos(file_array):
     """ Send validated files to get sorted """
-    def func(pic): return os.path.splitext(pic)[1].lower() in FILETYPES
-    sort_files(list(filter(func, file_array)))
+    def func(pic): return is_image(pic)
+    return sort_files(list(filter(func, file_array)))
 
 
 def get_files(path):
-    """ Send files from directory to validation """
-    validate_photos(os.listdir(path))
+    """ Send filenames from directory to validation """
+    return validate_photos(os.listdir(path))
 
 
-def get_path():
-    """ Send directory with files to get_files """
-    get_files('pictures')  # switch for input('Enter folder path: ')
+def make_new_folder(path):
+    """ Make new folder to hold new photos """
+    if 'new_photos' not in os.listdir('pictures'):  # Replace with path
+        os.mkdir('{}/new_photos'.format('pictures'))  # Replace with path
+
+
+def get_exif(path):
+    tags = exifread.process_file(open(path, 'rb'))
+    return tags
+
+
+def make_photo(name, path):
+    exif = get_exif(path)
+    return Photo(name, exif)
+
+
+def make_array_from_files(path, valid_files):
+    photo_array = []
+    for file in valid_files:
+        photo = make_photo(file, '{}/{}'.format(path,file))
+        photo_array.append(photo)
+    return photo_array
 
 
 def main():
-    get_path()
-    # path = get_path()
-    # file_array = get_files(path)
-    # photos = validate_photos(file_array)
-    # sorted_photos = sort_files(photos)
-    # print(sorted_photos)
+    path = 'pictures'  # input('Enter directory: ')
+    valid_files = get_files(path)
+    array_of_photos = make_array_from_files(path, valid_files)
+
 
 if __name__ == '__main__':
     main()
+
+# new_photo = Photo()
+# print(new_photo.expo)
+# new_photo.set_new_expo(98)
+# new_photo.update_expo()
+# print(new_photo.expo)
 
 # raw = rawpy.imread('pictures/nef.nef')
 # rgb = raw.postprocess()

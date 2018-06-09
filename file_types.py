@@ -1,1 +1,1 @@
-FILETYPES = ['.jpg','.jpeg','.nef','.tiff']
+FILETYPES = ['.nef','.tiff']
