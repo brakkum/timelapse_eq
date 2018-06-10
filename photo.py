@@ -1,12 +1,12 @@
 class Photo:
 
     def __init__(self, name, exif):
-        # name='', expo='', fNum=0, iso=0, diff=0
+        # name='', expo='', fNum=0, iso=0
         self.name = name
         self.expo_length = exif['EXIF ExposureTime']
         self.fNum = exif['EXIF FNumber']
         self.iso = exif['EXIF ISOSpeedRatings']
-        
+
     # self.expo_diff = exif['MakerNote ExposureDifference']
     # self.new_expo = self.expo_diff
 

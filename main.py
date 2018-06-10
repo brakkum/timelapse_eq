@@ -29,6 +29,7 @@ def sort_files(photos):
 
 
 def is_image(pic):
+    """ Is it a vlid filetype? """
     return os.path.splitext(pic)[1].lower() in FILETYPES
 
 
@@ -45,8 +46,8 @@ def get_files(path):
 
 def make_new_folder(path):
     """ Make new folder to hold new photos """
-    if 'new_photos' not in os.listdir('pictures'):  # Replace with path
-        os.mkdir('{}/new_photos'.format('pictures'))  # Replace with path
+    if 'new_photos' not in os.listdir('pictures'):  # TODO Replace with path
+        os.mkdir('{}/new_photos'.format('pictures'))  # TODO Replace with path
 
 
 def get_exif(path):
@@ -62,25 +63,24 @@ def make_photo(name, path):
 def make_array_from_files(path, valid_files):
     photo_array = []
     for file in valid_files:
-        photo = make_photo(file, '{}/{}'.format(path,file))
-        photo_array.append(photo)
+        photo_array.append(make_photo(file, '{}/{}'.format(path, file)))
     return photo_array
 
 
+def compare(array):
+    print(array)
+
+
 def main():
-    path = 'pictures'  # input('Enter directory: ')
+    path = 'pictures'  # TODO replace input('Enter directory: ')
     valid_files = get_files(path)
     array_of_photos = make_array_from_files(path, valid_files)
+    compare(array_of_photos)
+    make_new_folder(path)
 
 
 if __name__ == '__main__':
     main()
-
-# new_photo = Photo()
-# print(new_photo.expo)
-# new_photo.set_new_expo(98)
-# new_photo.update_expo()
-# print(new_photo.expo)
 
 # raw = rawpy.imread('pictures/nef.nef')
 # rgb = raw.postprocess()

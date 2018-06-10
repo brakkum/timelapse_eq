@@ -1,4 +1,5 @@
-import exifread, os
+import exifread
+import os
 from file_types import FILETYPES
 
 i = 1
