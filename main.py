@@ -46,8 +46,8 @@ def get_files(path):
 
 def make_new_folder(path):
     """ Make new folder to hold new photos """
-    if 'new_photos' not in os.listdir('pictures'):  # TODO Replace with path
-        os.mkdir('{}/new_photos'.format('pictures'))  # TODO Replace with path
+    if 'new_photos' not in os.listdir(path):
+        os.mkdir('{}/new_photos'.format(path))
 
 
 def get_exif(path):
@@ -67,16 +67,20 @@ def make_array_from_files(path, valid_files):
     return photo_array
 
 
-def compare(array):
-    print(array)
-
-
 def main():
     path = 'pictures'  # TODO replace input('Enter directory: ')
+
     valid_files = get_files(path)
-    array_of_photos = make_array_from_files(path, valid_files)
-    compare(array_of_photos)
-    make_new_folder(path)
+
+    if valid_files:
+
+        array_of_photos = make_array_from_files(path, valid_files)
+
+        make_new_folder(path)
+
+        print(array_of_photos)
+    else:
+        print('no valid files')
 
 
 if __name__ == '__main__':

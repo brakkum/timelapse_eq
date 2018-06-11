@@ -1,3 +1,1 @@
-main.py:49:    if 'new_photos' not in os.listdir('pictures'):  # TODO Replace with path
-main.py:50:        os.mkdir('{}/new_photos'.format('pictures'))  # TODO Replace with path
-main.py:75:    path = 'pictures'  # TODO replace input('Enter directory: ')
+main.py:71:    path = 'pictures'  # TODO replace input('Enter directory: ')
