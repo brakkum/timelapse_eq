@@ -31,6 +31,7 @@ def get_files(path):
 
 def make_new_folder(path):
     """ Make new folder to hold new photos """
+    print('newf')
     if 'new_photos' not in os.listdir(path):
         os.mkdir('{}/new_photos'.format(path))
 
@@ -41,8 +42,9 @@ def get_exif(path):
 
 
 def make_photo(name, path):
+    data = open(path, 'rb')
     exif = get_exif(path)
-    return Photo(name, exif)
+    return Photo(data, exif, name)
 
 
 def make_array_from_files(path, valid_files):
@@ -91,6 +93,8 @@ def get_increments(ev_change, steps):
 
 def make_ev_change_array(diff_array, photo_array):
     change_array = []
+    # TODO Refactor all this
+    # TODO add ev changes for images after final change?
     for i in range(len(diff_array) - 1):
         start_index = diff_array[i]['index']
         next_start = diff_array[i + 1]['index']
@@ -112,6 +116,18 @@ def update_photo_objects(photos, ev_changes):
         photos[i].update_ev(ev_changes[i])
     return photos
 
+
+def save_photos(photos):
+    print(photos)
+    for photo in photos:
+        raw = rawpy.imread(photo.data)
+        rgb = raw.postprocess(exp_shift=photo.shift)
+        raw.close()
+        img = Image.fromarray(rgb) # Pillow image
+        # img.show()
+        img.save(photo.name, format="TIFF")
+
+
 def main():
     path = 'timelapse'  # TODO replace input('Enter directory: ')
     # get filenames of valid file type
@@ -128,19 +144,12 @@ def main():
         ev_change_array = make_ev_change_array(diff_array, array_of_photos)
         # apply changes to Photo objects
         photos_with_ev = update_photo_objects(array_of_photos, ev_change_array)
+        # pass photo array to photo maker
+        save_photos(photos_with_ev)
 
-        for i in photos_with_ev:
-            print('stops of change: {:<5} value to be passed: {:<}'.format(i.stops, i.shift))
     else:
         print('no valid files')
 
 
 if __name__ == '__main__':
     main()
-
-# raw = rawpy.imread('pictures/nef.nef')
-# rgb = raw.postprocess()
-# raw.close()
-# img = Image.fromarray(rgb) # Pillow image
-# # img.show()
-# img.save('rawpytests/nef_test.tiff')
