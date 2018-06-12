@@ -124,7 +124,11 @@ def update_photo_objects(photos, ev_changes):
 def save_photos(photos):
     for photo in photos:
         raw = rawpy.imread(photo.data)
-        rgb = raw.postprocess(exp_shift=photo.shift)
+        # TODO auto white balance option
+        rgb = raw.postprocess(
+            exp_shift=photo.shift,
+            use_auto_wb=True,
+            no_auto_bright=True)
         raw.close()
         img = Image.fromarray(rgb)  # Pillow image
         img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))

@@ -1,2 +1,3 @@
 main.py:99:    # TODO Refactor all this junk
 main.py:100:    # TODO add ev changes for images after final change?
+main.py:127:        # TODO auto white balance option
