@@ -1,3 +1,2 @@
-main.py:96:    # TODO Refactor all this
-main.py:97:    # TODO add ev changes for images after final change?
-main.py:132:    path = 'timelapse'  # TODO replace input('Enter directory: ')
+main.py:99:    # TODO Refactor all this junk
+main.py:100:    # TODO add ev changes for images after final change?

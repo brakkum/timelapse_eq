@@ -31,7 +31,6 @@ def get_files(path):
 
 def make_new_folder(path):
     """ Make new folder to hold new photos """
-    print('newf')
     if 'new_photos' not in os.listdir(path):
         os.mkdir('{}/new_photos'.format(path))
 
@@ -42,15 +41,15 @@ def get_exif(path):
 
 
 def make_photo(name, path):
-    data = open(path, 'rb')
-    exif = get_exif(path)
-    return Photo(data, exif, name)
+    data = open('{}/{}'.format(path, name), 'rb')
+    exif = get_exif('{}/{}'.format(path, name))
+    return Photo(data, exif, name, path)
 
 
 def make_array_from_files(path, valid_files):
     photo_array = []
     for file in valid_files:
-        photo_array.append(make_photo(file, '{}/{}'.format(path, file)))
+        photo_array.append(make_photo(file, path))
     return photo_array
 
 
@@ -77,10 +76,14 @@ def find_change_points(photos):
 
 
 def get_val(photo_array, i, val):
-    if val == 'shut': return photo_array[i].shut
-    elif val == 'iso': return photo_array[i].iso
-    elif val == 'fNum': return photo_array[i].fNum
-    else: return
+    if val == 'shut':
+        return photo_array[i].shut
+    elif val == 'iso':
+        return photo_array[i].iso
+    elif val == 'fNum':
+        return photo_array[i].fNum
+    else:
+        return
 
 
 def get_ev_change(start, stop):
@@ -93,7 +96,7 @@ def get_increments(ev_change, steps):
 
 def make_ev_change_array(diff_array, photo_array):
     change_array = []
-    # TODO Refactor all this
+    # TODO Refactor all this junk
     # TODO add ev changes for images after final change?
     for i in range(len(diff_array) - 1):
         start_index = diff_array[i]['index']
@@ -108,6 +111,7 @@ def make_ev_change_array(diff_array, photo_array):
 
         for j in range(0, next_start - start_index):
             change_array.append(round((increments * j), 3))
+
     return change_array
 
 
@@ -118,18 +122,17 @@ def update_photo_objects(photos, ev_changes):
 
 
 def save_photos(photos):
-    print(photos)
     for photo in photos:
         raw = rawpy.imread(photo.data)
         rgb = raw.postprocess(exp_shift=photo.shift)
         raw.close()
-        img = Image.fromarray(rgb) # Pillow image
-        # img.show()
-        img.save(photo.name, format="TIFF")
+        img = Image.fromarray(rgb)  # Pillow image
+        img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
 
 
 def main():
-    path = 'timelapse'  # TODO replace input('Enter directory: ')
+    # get folder with images
+    path = input('Enter directory: ')
     # get filenames of valid file type
     valid_files = get_files(path)
 

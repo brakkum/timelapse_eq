@@ -1,8 +1,9 @@
 
 class Photo:
 
-    def __init__(self, data, exif, name):
+    def __init__(self, data, exif, name, path):
         # name='', expo='', fNum=0, iso=0
+        self.path = path
         self.data = data
         self.name = name
         self.str_shut = str(exif['EXIF ExposureTime'])
@@ -13,7 +14,7 @@ class Photo:
         self.shift = 1.0
 
     def exp_shift(self, stops):
-        self.shift = pow(2, stops) 
+        self.shift = pow(2, stops)
 
     def update_ev(self, stops):
         self.stops = stops
