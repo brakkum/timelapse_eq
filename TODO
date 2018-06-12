@@ -1,1 +1,1 @@
-main.py:71:    path = 'pictures'  # TODO replace input('Enter directory: ')
+main.py:116:    path = 'timelapse'  # TODO replace input('Enter directory: ')

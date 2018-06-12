@@ -2,25 +2,10 @@ import exifread
 import os
 import subprocess
 import rawpy
+import math
 from photo import Photo
 from PIL import Image
 from file_types import FILETYPES
-
-
-def photo_objects():
-    photos = []
-    print(files)
-    for file in files:
-        opened = open(path + '/' + file, 'rb')
-        tags = exifread.process_file(opened)
-        pic = Photo(
-            fileName=file,
-            expo=tags['EXIF ExposureTime'],
-            fNum=tags['EXIF FNumber'],
-            iso=tags['EXIF ISOSpeedRatings'],
-            diff=tags['MakerNote ExposureDifference']
-            )
-        photos.append(pic)
 
 
 def sort_files(photos):
@@ -67,18 +52,85 @@ def make_array_from_files(path, valid_files):
     return photo_array
 
 
-def main():
-    path = 'pictures'  # TODO replace input('Enter directory: ')
+def find_change_points(photos):
+    diff_array = [{'index': 0}]
+    for i in range(0, len(photos)):
+        if i != len(photos) - 1:
+            if photos[i].shut != photos[i + 1].shut:
+                change = photos[i + 1].shut
+                diff_array.append({
+                    'index': i + 1,
+                    'change': 'shut'})
+            elif photos[i].iso != photos[i + 1].iso:
+                change = photos[i + 1].iso
+                diff_array.append({
+                    'index': i + 1,
+                    'change': 'iso'})
+            elif photos[i].fNum != photos[i + 1].fNum:
+                change = photos[i + 1].fNum
+                diff_array.append({
+                    'index': i + 1,
+                    'change': 'fNum'})
+    return diff_array
 
+
+def get_val(photo_array, i, val):
+    if val == 'shut': return photo_array[i].shut
+    elif val == 'iso': return photo_array[i].iso
+    elif val == 'fNum': return photo_array[i].fNum
+    else: return
+
+
+def get_ev_change(start, stop):
+    return -(math.log2(start) - math.log2(stop))
+
+
+def get_increments(ev_change, steps):
+    return ev_change / steps
+
+
+def make_ev_change_array(diff_array, photo_array):
+    change_array = []
+    for i in range(len(diff_array) - 1):
+        start_index = diff_array[i]['index']
+        next_start = diff_array[i + 1]['index']
+        being_changed = diff_array[i + 1]['change']
+
+        start_val = get_val(photo_array, start_index, being_changed)
+        end_val = get_val(photo_array, next_start, being_changed)
+
+        ev_change = get_ev_change(start_val, end_val)
+        increments = get_increments(ev_change, next_start - start_index)
+
+        for j in range(0, next_start - start_index):
+            change_array.append(round(1 + (increments * j), 3))
+    return change_array
+
+
+def update_photo_objects(photos, ev_changes):
+    for i in range(len(ev_changes)):
+        photos[i].update_ev(ev_changes[i])
+    return photos
+
+def main():
+    path = 'timelapse'  # TODO replace input('Enter directory: ')
+    # get filenames of valid file type
     valid_files = get_files(path)
 
     if valid_files:
-
+        # get array of photo objects
         array_of_photos = make_array_from_files(path, valid_files)
-
+        # make new directory for new photos
         make_new_folder(path)
+        # find the indices where exposure changes
+        diff_array = find_change_points(array_of_photos)
+        # create array with ev change that will be needed for each photo
+        ev_change_array = make_ev_change_array(diff_array, array_of_photos)
+        # apply changes to Photo objects
+        photos_with_ev = update_photo_objects(array_of_photos, ev_change_array)
 
-        print(array_of_photos)
+        for i in photos_with_ev:
+            print(i.stops)
     else:
         print('no valid files')
 
