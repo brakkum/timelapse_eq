@@ -103,7 +103,7 @@ def make_ev_change_array(diff_array, photo_array):
         increments = get_increments(ev_change, next_start - start_index)
 
         for j in range(0, next_start - start_index):
-            change_array.append(round(1 + (increments * j), 3))
+            change_array.append(round((increments * j), 3))
     return change_array
 
 
@@ -130,7 +130,7 @@ def main():
         photos_with_ev = update_photo_objects(array_of_photos, ev_change_array)
 
         for i in photos_with_ev:
-            print(i.stops)
+            print('stops of change: {:<5} value to be passed: {:<}'.format(i.stops, i.shift))
     else:
         print('no valid files')
 
