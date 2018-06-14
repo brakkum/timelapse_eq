@@ -26,6 +26,14 @@ class Timelapse:
                 no_auto_bright=True)
             raw.close()
             img = Image.fromarray(rgb)  # Pillow image
+            # change width if arg
+            if self.args.width:
+                img_size = img.size
+                image_ratio = img_size[1] / img_size[0]
+                height = float(self.args.width) * float(image_ratio)
+                new_tup = (int(self.args.width), int(height))
+                size = new_tup
+                img = img.resize(size)
             img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
 
     def update_photo_objects(self):
