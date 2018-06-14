@@ -5,8 +5,10 @@ import exifread
 import rawpy
 import os
 
+
 class Timelapse:
     def __init__(self, directory):
+        self.args = directory.args
         self.path = directory.dir_path
         self.files = directory.files
         self.photos = self.make_photos()
@@ -18,10 +20,9 @@ class Timelapse:
     def save_photos(self):
         for photo in self.photos:
             raw = rawpy.imread(photo.data)
-            # TODO auto white balance option
             rgb = raw.postprocess(
                 exp_shift=photo.shift,
-                use_auto_wb=True,
+                use_auto_wb=self.args.auto_wb,
                 no_auto_bright=True)
             raw.close()
             img = Image.fromarray(rgb)  # Pillow image
@@ -58,7 +59,8 @@ class Timelapse:
             start_val = self.get_val(start_index, being_changed)
             end_val = self.get_val(next_start, being_changed)
             ev_change = self.get_ev_change(start_val, end_val)
-            increments = self.get_increments(ev_change, next_start - start_index)
+            diff = next_start - start_index
+            increments = self.get_increments(ev_change, diff)
             for j in range(0, next_start - start_index):
                 change_array.append(round((increments * j), 3))
         return change_array
@@ -67,17 +69,19 @@ class Timelapse:
         diff_array = [{'index': 0}]
         for i in range(0, len(self.photos)):
             if i != len(self.photos) - 1:
-                if self.photos[i].shut != self.photos[i + 1].shut:
+                current = self.photos[i]
+                _next = self.photos[i + 1]
+                if current.shut != _next.shut:
                     change = self.photos[i + 1].shut
                     diff_array.append({
                         'index': i + 1,
                         'change': 'shut'})
-                elif self.photos[i].iso != self.photos[i + 1].iso:
+                elif current.iso != _next.iso:
                     change = self.photos[i + 1].iso
                     diff_array.append({
                         'index': i + 1,
                         'change': 'iso'})
-                elif self.photos[i].fNum != self.photos[i + 1].fNum:
+                elif current.fNum != _next.fNum:
                     change = self.photos[i + 1].fNum
                     diff_array.append({
                         'index': i + 1,

@@ -1,5 +1,3 @@
-main.py:7:    path = 'test'  # TODO again: input('Enter directory: ')
-timelapse.py:21:            # TODO auto white balance option
-timelapse.py:52:        # TODO Refactor all this junk
-timelapse.py:53:        # TODO add ev changes for images after final change?
-timelapse.py:85:        # TODO Add option to adjust start and stop here?
+timelapse.py:53:        # TODO Refactor all this junk
+timelapse.py:54:        # TODO add ev changes for images after final change?
+timelapse.py:89:        # TODO Add option to adjust start and stop here?

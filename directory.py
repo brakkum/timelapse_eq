@@ -4,16 +4,18 @@ from timelapse import Timelapse
 
 
 class Dir:
-    def __init__(self, dir_path):
+    def __init__(self, dir_path, args):
         self.dir_path = dir_path
+        self.args = args
+        print(self.args)
         self.dir_contents = self.get_dir(self.dir_path)
         self.files = self.only_valid_files(self.dir_contents)
         self.move_on()
 
     def move_on(self):
         if self.files:
-            self.timelapse = Timelapse(self)
             self.make_dir()
+            self.timelapse = Timelapse(self)
         else:
             print('No valid files.')
 
@@ -24,8 +26,8 @@ class Dir:
         return os.path.splitext(pic)[1].lower() in FILETYPES
 
     def only_valid_files(self, files):
-        def func(pic): return self.is_image(pic)
-        return self.sort_files(list(filter(func, files)))
+        def is_image(pic): return self.is_image(pic)
+        return self.sort_files(list(filter(is_image, files)))
 
     def get_dir(self, dir_path):
         return os.listdir(dir_path)
