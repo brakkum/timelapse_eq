@@ -78,7 +78,12 @@ class Timelapse:
     def change_start(self, diff_array):
         for i in range(diff_array[1]['index']):
             print('{}: {}/{}'.format(i + 1,self.path,self.photos[i].name))
-        selection = int(input('Enter number to select new start point: '))
+        selection = -1
+        while selection < 1 or selection > diff_array[1]['index']:
+            try:
+                selection = int(input('Enter number to select new start point: '))
+            except ValueError:
+                print('Integers only, please.')
         diff_array[0]['index'] = selection - 1
         print(diff_array)
         return diff_array
@@ -105,7 +110,6 @@ class Timelapse:
                         'index': i + 1,
                         'change': 'fNum'})
         if self.args.start:
-            # TODO this
             diff_array = self.change_start(diff_array)
         return diff_array
 
