@@ -1,13 +1,13 @@
 import os
-from file_types import FILETYPES
-from timelapse import Timelapse
+from timelapse_eq.file_types import FILETYPES
+from timelapse_eq.timelapse import Timelapse
 
 
 class Dir:
-    def __init__(self, dir_path, args):
+    def __init__(self, args):
         try:
-            self.dir_path = dir_path
             self.args = args
+            self.dir_path = args.folder
             self.dir_contents = self.get_dir()
             self.files = self.only_valid_files()
             self.move_on()

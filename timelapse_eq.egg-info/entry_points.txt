@@ -1,0 +1,3 @@
+[console_scripts]
+timelapse_eq = timelapse_eq.__main__:main
+

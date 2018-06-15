@@ -1,4 +1,4 @@
-from photo import Photo
+from timelapse_eq.photo import Photo
 from PIL import Image
 import math
 import exifread
