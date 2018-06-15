@@ -34,6 +34,9 @@ class Timelapse:
                 new_tup = (int(self.args.width), int(height))
                 size = new_tup
                 img = img.resize(size)
+            print('Saving {}/new_photos/{}.tiff'.format(photo.path, photo.name),
+                end="\r",
+                flush=True)
             img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
 
     def update_photo_objects(self):
