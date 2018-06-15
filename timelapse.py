@@ -57,9 +57,8 @@ class Timelapse:
         return -(math.log2(start) - math.log2(stop))
 
     def make_ev_array(self):
-        change_array = []
+        change_array = [1] * len(self.photos)
         # TODO Refactor all this junk
-        # TODO add ev changes for images after final change?
         for i in range(len(self.change_points) - 1):
             start_index = self.change_points[i]['index']
             next_start = self.change_points[i + 1]['index']
@@ -69,12 +68,14 @@ class Timelapse:
             ev_change = self.get_ev_change(start_val, end_val)
             diff = next_start - start_index
             increments = self.get_increments(ev_change, diff)
-            for j in range(0, next_start - start_index):
-                change_array.append(round((increments * j), 3))
+            k = 0
+            for j in range(start_index, next_start):
+                change_array[j] = round((increments * k), 3) + 1
+                k += 1
+        print('change_array',change_array)
         return change_array
 
     def change_start(self, diff_array):
-        print('One moment, opening your photo viewing application')
         for i in range(diff_array[1]['index']):
             print('{}: {}/{}'.format(i + 1,self.path,self.photos[i].name))
         selection = int(input('Enter number to select new start point: '))
