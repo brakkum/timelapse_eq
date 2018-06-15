@@ -5,11 +5,14 @@ from timelapse import Timelapse
 
 class Dir:
     def __init__(self, dir_path, args):
-        self.dir_path = dir_path
-        self.args = args
-        self.dir_contents = self.get_dir(self.dir_path)
-        self.files = self.only_valid_files(self.dir_contents)
-        self.move_on()
+        try:
+            self.dir_path = dir_path
+            self.args = args
+            self.dir_contents = self.get_dir(self.dir_path)
+            self.files = self.only_valid_files(self.dir_contents)
+            self.move_on()
+        except FileNotFoundError:
+            print('No such directory')
 
     def move_on(self):
         if self.files:
