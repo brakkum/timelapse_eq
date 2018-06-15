@@ -3,6 +3,7 @@ import argparse
 
 
 parser = argparse.ArgumentParser()
+
 parser.add_argument(
     '--width',
     help='set width of output photos',

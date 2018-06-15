@@ -73,6 +73,15 @@ class Timelapse:
                 change_array.append(round((increments * j), 3))
         return change_array
 
+    def change_start(self, diff_array):
+        print('One moment, opening your photo viewing application')
+        for i in range(diff_array[1]['index']):
+            print('{}: {}/{}'.format(i + 1,self.path,self.photos[i].name))
+        selection = int(input('Enter number to select new start point: '))
+        diff_array[0]['index'] = selection - 1
+        print(diff_array)
+        return diff_array
+
     def find_changes(self):
         diff_array = [{'index': 0}]
         for i in range(0, len(self.photos)):
@@ -94,7 +103,9 @@ class Timelapse:
                     diff_array.append({
                         'index': i + 1,
                         'change': 'fNum'})
-        # TODO Add option to adjust start and stop here?
+        if self.args.start:
+            # TODO this
+            diff_array = self.change_start(diff_array)
         return diff_array
 
     def get_exif(self, photo):
