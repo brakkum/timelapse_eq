@@ -38,6 +38,7 @@ class Timelapse:
                 end="\r",
                 flush=True)
             img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
+        print('Photos saved.')
 
     def update_photo_objects(self):
         for i in range(len(self.ev_changes)):
