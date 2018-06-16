@@ -2,7 +2,6 @@
 class Photo:
 
     def __init__(self, data, exif, name, path):
-        # name='', expo='', fNum=0, iso=0
         self.path = path
         self.data = data
         self.name = name

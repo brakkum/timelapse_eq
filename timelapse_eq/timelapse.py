@@ -26,19 +26,19 @@ class Timelapse:
                 no_auto_bright=True)
             raw.close()
             img = Image.fromarray(rgb)  # Pillow image
-            # change width if arg
             if self.args.width:
                 img_size = img.size
                 image_ratio = img_size[1] / img_size[0]
                 height = float(self.args.width) * float(image_ratio)
-                new_tup = (int(self.args.width), int(height))
-                size = new_tup
-                img = img.resize(size)
-            print('Saving {}/new_photos/{}.tiff'.format(photo.path, photo.name),
-                end="\r",
-                flush=True)
+                size_tup = (int(self.args.width), int(height))
+                img = img.resize(size_tup)
+            print('Saving {}/new_photos/{}.tiff'.format(photo.path, photo.name)
+                  + '                 ',
+                  end="\r",
+                  flush=True)
             img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
-        print('Photos saved.')
+        print('\rPhotos saved.'
+              + '                            ')
 
     def update_photo_objects(self):
         for i in range(len(self.ev_changes)):
@@ -76,20 +76,18 @@ class Timelapse:
             for j in range(start_index, next_start):
                 change_array[j] = round((increments * k), 3) + 1
                 k += 1
-        print('change_array',change_array)
         return change_array
 
     def change_start(self, diff_array):
         for i in range(diff_array[1]['index']):
-            print('{}: {}/{}'.format(i + 1,self.path,self.photos[i].name))
+            print('{}: {}/{}'.format(i + 1, self.path, self.photos[i].name))
         selection = -1
         while selection < 1 or selection > diff_array[1]['index']:
             try:
-                selection = int(input('Enter number to select new start point: '))
+                selection = int(input('Enter number of new start point: '))
             except ValueError:
                 print('Integers only, please.')
         diff_array[0]['index'] = selection - 1
-        print(diff_array)
         return diff_array
 
     def find_changes(self):

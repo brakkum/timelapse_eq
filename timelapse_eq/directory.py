@@ -7,7 +7,7 @@ class Dir:
     def __init__(self, args):
         try:
             self.args = args
-            self.dir_path = args.folder
+            self.dir_path = args.directory
             self.dir_contents = self.get_dir()
             self.files = self.only_valid_files()
             self.move_on()
