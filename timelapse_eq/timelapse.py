@@ -19,7 +19,9 @@ class Timelapse:
 
     def save_photos(self):
         for photo in self.photos:
-            raw = rawpy.imread(photo.data)
+            f = open('{}/{}'.format(self.path, photo.name), 'rb')
+            raw = rawpy.imread(f)
+            f.close()
             rgb = raw.postprocess(
                 exp_shift=photo.shift,
                 use_auto_wb=self.args.auto_wb,
@@ -32,11 +34,11 @@ class Timelapse:
                 height = float(self.args.width) * float(image_ratio)
                 size_tup = (int(self.args.width), int(height))
                 img = img.resize(size_tup)
-            print('Saving {}/new_photos/{}.tiff'.format(photo.path, photo.name)
+            print('Saving {}/new_photos/{}.tiff'.format(self.path, photo.name)
                   + '                 ',
                   end="\r",
                   flush=True)
-            img.save('{}/new_photos/{}.tiff'.format(photo.path, photo.name))
+            img.save('{}/new_photos/{}.tiff'.format(self.path, photo.name))
         print('\rPhotos saved.'
               + '                            ')
 
@@ -76,6 +78,7 @@ class Timelapse:
             for j in range(start_index, next_start):
                 change_array[j] = round((increments * k), 3) + 1
                 k += 1
+        print(change_array)
         return change_array
 
     def change_start(self, diff_array):
@@ -116,13 +119,18 @@ class Timelapse:
         return diff_array
 
     def get_exif(self, photo):
-        tags = exifread.process_file(open(photo, 'rb'))
+        print(photo, end="\r")
+        f = open(photo, 'rb')
+        tags = exifread.process_file(f)
+        f.close()
         return tags
 
     def make_photo(self, photo):
-        data = open('{}/{}'.format(self.path, photo), 'rb')
+        # f = open('{}/{}'.format(self.path, photo), 'rb')
+        # data = f.read()
+        # f.close()
         exif = self.get_exif('{}/{}'.format(self.path, photo))
-        return Photo(data, exif, photo, self.path)
+        return Photo(exif, photo)  # Removed data and path
 
     def make_photos(self):
         photos = []

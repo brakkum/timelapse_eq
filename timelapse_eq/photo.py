@@ -1,9 +1,7 @@
 
 class Photo:
 
-    def __init__(self, data, exif, name, path):
-        self.path = path
-        self.data = data
+    def __init__(self, exif, name):
         self.name = name
         self.str_shut = str(exif['EXIF ExposureTime'])
         self.shut = eval(self.str_shut)
