@@ -1,6 +1,7 @@
 import os
 from timelapse_eq.file_types import FILETYPES
 from timelapse_eq.timelapse import Timelapse
+import time
 
 
 class Dir:
@@ -17,7 +18,10 @@ class Dir:
     def move_on(self):
         if self.files:
             self.make_dir()
+            s = time.time()
             self.timelapse = Timelapse(self)
+            e = time.time()
+            print('timelapse took',e-s)
         else:
             print('No valid files.')
 
