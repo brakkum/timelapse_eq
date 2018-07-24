@@ -3,7 +3,7 @@
 
 Timelapse_EQ is a personal project I undertook after being intrigued by a `youtube video by Devon Crawford <https://www.youtube.com/watch?v=mHV6nb_4a-c>`_. I used to spend a lot of time doing photography, and the idea of automating the process of adjusting photo exposures for a timelapse seemed very enticing. Also, I wanted to see if I could see this from start to completion, as this is my first time attempting to complete an entire Python project.
 
-.. image:: https://www.dropbox.com/s/3a89dn6e3aqrrx4/endgif_bigger.gif?dl=0
+.. image:: https://www.dropbox.com/s/3a89dn6e3aqrrx4/endgif_bigger.gif
 
 .. contents::
 .. section-numbering::
