@@ -83,4 +83,6 @@ Then you would simply enter the number that corresponds with the file where the 
 This will only display the files up to the first change in the EXIF data of the files provided. 
 Entering 1 would be the same as running the program without the :code:`--start` flag.
 
-
+TODO
+============
+Refactor to better OO structure
