@@ -18,12 +18,6 @@ For now, if someone finds this, just grab a copy of this repo, and inside the di
 
 From there you should be able to use timelapse_eq in bash. Granted, I'm new to this, so let me know if I'm a dummy.
 
-Soon you can do....
-
-.. code-block:: bash
-
-    $ pip3 install timelapse_eq
-
 Usage
 =====
 
