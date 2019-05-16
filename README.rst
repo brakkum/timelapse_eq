@@ -1,7 +1,7 @@
 **Timelapse_EQ**
 ################
 
-Timelapse_EQ is a personal project I undertook after being intrigued by a `youtube video by Devon Crawford <https://www.youtube.com/watch?v=mHV6nb_4a-c>`_. I used to spend a lot of time doing photography, and the idea of automating the process of adjusting photo exposures for a timelapse seemed very enticing. Also, I wanted to see if I could see this from start to completion, as this is my first time attempting to complete an entire Python project.
+Timelapse_EQ is a personal project I undertook after being intrigued by a `youtube video by Devon Crawford <https://www.youtube.com/watch?v=mHV6nb_4a-c>`_. I used to spend a lot of time doing photography, and the idea of automating the process of adjusting photo exposures for a timelapse seemed very enticing.
 
 .. image:: /timelapse.gif
 
@@ -10,7 +10,7 @@ Timelapse_EQ is a personal project I undertook after being intrigued by a `youtu
 
 Installation
 ============
-For now, if someone finds this, just grab a copy of this repo, and inside the directory, do a:
+Grab a copy of the repo, and inside the project root, execute:
 
 .. code-block:: bash
 
