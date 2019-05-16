@@ -16,7 +16,7 @@ For now, if someone finds this, just grab a copy of this repo, and inside the di
 
     $ pip3 install .
 
-From there you should be able to use timelapse_eq in bash. Granted, I'm new to this, so let me know if I'm a dummy.
+From there you should be able to use timelapse_eq in bash.
 
 Usage
 =====
@@ -33,7 +33,7 @@ Arguments
    * - :code:`directory`
      - | The only required argument. 
          This is the path to the photos you want to work with.
-       | A '.' would be your current directory.
+       | A "." would be your current directory.
    * - :code:`--start`
      - If exposure change in the original photos began after the first photo,
        this flag will let you select where EV changes began from a list of filenames.
@@ -76,7 +76,3 @@ With the :code:`--start` flag, something like this will pop up:
 Then you would simply enter the number that corresponds with the file where the exposure started to change. 
 This will only display the files up to the first change in the EXIF data of the files provided. 
 Entering 1 would be the same as running the program without the :code:`--start` flag.
-
-TODO
-============
-Refactor to better OO structure

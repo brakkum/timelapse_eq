@@ -1,43 +1,31 @@
-import os
 from timelapse_eq.file_types import FILETYPES
-from timelapse_eq.timelapse import Timelapse
-import time
+import os
 
 
-class Dir:
-    def __init__(self, args):
-        try:
-            self.args = args
-            self.dir_path = args.directory
-            self.dir_contents = self.get_dir()
-            self.files = self.only_valid_files()
-            self.move_on()
-        except FileNotFoundError:
-            print('No such directory')
+class Directory:
+    def __init__(self, directory):
+        self.path = directory
+        self.valid_photos = []
+        self.output_path = directory + "/new_photos/"
 
-    def move_on(self):
-        if self.files:
-            self.make_dir()
-            s = time.time()
-            self.timelapse = Timelapse(self)
-            e = time.time()
-            print('timelapse took',e-s)
-        else:
-            print('No valid files.')
+    def exists(self):
+        return os.path.isdir(self.path)
 
-    def sort_files(self, photos):
-        return sorted(photos)
-
-    def is_image(self, pic):
-        return os.path.splitext(pic)[1].lower() in FILETYPES
-
-    def only_valid_files(self):
+    def find_photos(self):
         def is_image(pic): return self.is_image(pic)
-        return self.sort_files(list(filter(is_image, self.dir_contents)))
+        valid_photos = [pic for pic in os.listdir(self.path) if is_image(pic)]
+        self.valid_photos = [(self.path + "/" + pic) for pic in valid_photos]
 
-    def get_dir(self):
-        return os.listdir(self.dir_path)
+    def sort_photos(self):
+        self.valid_photos = sorted(self.valid_photos)
 
-    def make_dir(self):
-        if 'new_photos' not in self.dir_contents:
-            os.mkdir('{}/new_photos'.format(self.dir_path))
+    def has_valid_photos(self):
+        return len(self.valid_photos) > 0
+
+    def make_output_dir(self):
+        if not os.path.exists(self.output_path):
+            os.mkdir("{0}/new_photos".format(self.path))
+
+    @staticmethod
+    def is_image(pic):
+        return os.path.splitext(pic)[1].lower() in FILETYPES

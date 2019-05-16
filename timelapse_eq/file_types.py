@@ -1,1 +1,1 @@
-FILETYPES = ['.nef','.tiff']  # Probably add more later
+FILETYPES = [".nef",".tiff"]  # Probably add more later
