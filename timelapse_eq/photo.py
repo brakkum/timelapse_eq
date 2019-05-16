@@ -9,7 +9,6 @@ class Photo:
         self.path = path
         self.directory = os.path.split(path)[0]
         self.name = os.path.basename(path)
-        self.str_shut = None
         self.shut = None
         self.iso = None
         self.fNum = None
@@ -20,8 +19,7 @@ class Photo:
         file = open(self.path, "rb")
         exif = exifread.process_file(file)
         file.close()
-        self.str_shut = str(exif["EXIF ExposureTime"])
-        self.shut = eval(self.str_shut)
+        self.shut = eval(str(exif["EXIF ExposureTime"]))
         self.iso = int(str(exif["EXIF ISOSpeedRatings"]))
         self.fNum = float(str(exif["EXIF FNumber"]))
 
