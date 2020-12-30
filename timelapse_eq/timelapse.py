@@ -52,7 +52,7 @@ class TimeLapse:
 
     def change_start(self, change_points):
         for i in range(change_points[1]["index"]):
-            print("{0}: {1}".format(i + 1, self.photos[i].name))
+            print(f"{i + 1}: {self.photos[i].name}")
         selection = -1
         while selection < 1 or selection > change_points[1]["index"]:
             try:

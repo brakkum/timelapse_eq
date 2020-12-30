@@ -1,6 +1,6 @@
+from timelapse_eq.utilities import colorize as c, PrintColors as pc
 from timelapse_eq.directory import Directory
 from timelapse_eq.timelapse import TimeLapse
-from colorama import Fore
 import argparse
 import sys
 import os
@@ -33,20 +33,14 @@ def main():
     directory = Directory(chosen_directory)
 
     if not directory.exists:
-        print(
-            Fore.GREEN + chosen_directory + Fore.WHITE + " is " +
-            Fore.RED + "not" + Fore.WHITE + " a valid directory."
-        )
+        print(f"{c(chosen_directory, pc.GREEN)} is {c('not', pc.RED)} a valid directory.")
         sys.exit(0)
 
     directory.find_photos()
     directory.sort_photos()
 
     if not directory.has_valid_photos():
-        print(
-            "Directory " + Fore.GREEN + chosen_directory + Fore.WHITE + " does " +
-            Fore.RED + "not" + Fore.WHITE + " have any valid photos."
-        )
+        print(f"{c(chosen_directory, pc.GREEN)} does {c('not', pc.RED)} have any valid photos.")
         sys.exit(0)
 
     directory.make_output_dir()
