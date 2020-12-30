@@ -57,7 +57,7 @@ def main():
     timelapse.determine_exposure_change_points(args.start)
     timelapse.determine_necessary_exposure_changes()
     timelapse.update_photos()
-    timelapse.save_photos(args)
+    timelapse.save_timelapse_photos(args)
 
 
 if __name__ == "__main__":

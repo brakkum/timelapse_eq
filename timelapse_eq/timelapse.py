@@ -112,13 +112,13 @@ class TimeLapse:
     def get_exposure_change(start, stop):
         return -(math.log2(start) - math.log2(stop))
 
-    def save_photos(self, args):
+    def save_timelapse_photos(self, args):
         print(Fore.YELLOW + "Saving Photos..")
         with concurrent.futures.ProcessPoolExecutor() as executor:
-            save_photo_func_with_args = partial(self.save_photo, args=args)
+            save_photo_func_with_args = partial(self.save_timelapse_photo, args=args)
             zip(self.photos, executor.map(save_photo_func_with_args, self.photos))
         print(Fore.GREEN + "Photos Saved")
 
     @staticmethod
-    def save_photo(photo, args):
+    def save_timelapse_photo(photo, args):
         photo.save(args)
