@@ -1,4 +1,4 @@
-from timelapse_eq.file_types import FILETYPES
+from timelapse_eq.constants import RAW_FILETYPES, OUTPUT_DIR
 import os
 
 
@@ -6,13 +6,13 @@ class Directory:
     def __init__(self, directory):
         self.path = directory
         self.valid_photos = []
-        self.output_path = directory + "/new_photos/"
+        self.output_path = f"{directory}/{OUTPUT_DIR}/"
         self.exists = os.path.isdir(self.path)
 
     def find_photos(self):
-        def is_image(pic): return os.path.splitext(pic)[1].lower() in FILETYPES
+        def is_image(pic): return os.path.splitext(pic)[1].lower() in RAW_FILETYPES
         valid_photos = [pic for pic in os.listdir(self.path) if is_image(pic)]
-        self.valid_photos = [(self.path + "/" + pic) for pic in valid_photos]
+        self.valid_photos = [f"{self.path}/{pic}" for pic in valid_photos]
 
     def sort_photos(self):
         self.valid_photos = sorted(self.valid_photos)
@@ -22,4 +22,4 @@ class Directory:
 
     def make_output_dir(self):
         if not os.path.exists(self.output_path):
-            os.mkdir("{0}/new_photos".format(self.path))
+            os.mkdir(f"{self.path}/{OUTPUT_DIR}")
