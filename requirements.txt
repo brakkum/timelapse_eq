@@ -1,0 +1,7 @@
+
+ExifRead~=2.3.2
+rawpy~=0.13.1
+Pillow~=6.2.0
+imageio~=2.6.1
+setuptools~=40.8.0
+colorama~=0.4.4
