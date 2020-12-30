@@ -101,19 +101,8 @@ class TimeLapse:
             return
 
     def update_photos(self):
-        changes = iter(self.necessary_exposure_changes)
-
-        current_change = next(changes)
-        next_change = next(changes)
-
-        while next_change is not None:
-            change_index = self.necessary_exposure_changes.index(current_change)
-            self.photos[change_index].update_exposure_change_needed(current_change)
-            current_change = next_change
-            try:
-                next_change = next(changes)
-            except StopIteration:
-                next_change = None
+        for i, change in enumerate(self.necessary_exposure_changes):
+            self.photos[i].update_exposure_change_needed(change)
 
     @staticmethod
     def get_increments_for_change(ev_change, steps):
