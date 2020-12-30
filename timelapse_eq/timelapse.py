@@ -13,9 +13,9 @@ class TimeLapse:
         self.necessary_exposure_changes = []
 
     def make_photos(self):
-        print(colorize("Making Photos..", PrintColors.YELLOW))
+        print(colorize("Reading Photos..", PrintColors.YELLOW))
         self.photos = [Photo(path) for path in self.file_paths]
-        print(colorize("Photos Made", PrintColors.GREEN))
+        print(colorize("Photos Read", PrintColors.GREEN))
 
     def determine_exposure_change_points(self, change_start):
         change_points = [{"index": 0}]
@@ -114,11 +114,11 @@ class TimeLapse:
         return -(math.log2(start) - math.log2(stop))
 
     def save_timelapse_photos(self, args):
-        print(colorize("Saving Photos..", PrintColors.YELLOW))
+        print(colorize("Saving TIFF Photos..", PrintColors.YELLOW))
         with concurrent.futures.ProcessPoolExecutor() as executor:
             save_photo_func_with_args = partial(self.save_timelapse_photo, args=args)
             zip(self.photos, executor.map(save_photo_func_with_args, self.photos))
-        print(colorize("Photos Saved", PrintColors.GREEN))
+        print(colorize("TIFF Photos Saved", PrintColors.GREEN))
 
     @staticmethod
     def save_timelapse_photo(photo, args):
