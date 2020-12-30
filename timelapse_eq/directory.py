@@ -7,9 +7,7 @@ class Directory:
         self.path = directory
         self.valid_photos = []
         self.output_path = directory + "/new_photos/"
-
-    def exists(self):
-        return os.path.isdir(self.path)
+        self.exists = os.path.isdir(self.path)
 
     def find_photos(self):
         def is_image(pic): return self.is_image(pic)

@@ -32,7 +32,7 @@ def main():
     chosen_directory = os.path.abspath(args.directory)
     directory = Directory(chosen_directory)
 
-    if not directory.exists():
+    if not directory.exists:
         print(
             Fore.GREEN + chosen_directory + Fore.WHITE + " is " +
             Fore.RED + "not" + Fore.WHITE + " a valid directory."
