@@ -4,4 +4,3 @@ rawpy~=0.13.1
 Pillow~=7.1.0
 imageio~=2.6.1
 setuptools~=40.8.0
-colorama~=0.4.4

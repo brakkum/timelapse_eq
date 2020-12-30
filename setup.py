@@ -21,7 +21,6 @@ setup(
         "Pillow",
         "exifread",
         "rawpy",
-        "colorama"
     ],
     entry_points= {
         "console_scripts": [

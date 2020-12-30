@@ -1,7 +1,7 @@
+from timelapse_eq.utilities import colorize, PrintColors
 from timelapse_eq.photo import Photo
 from functools import partial
 import concurrent.futures
-from colorama import Fore
 import math
 
 
@@ -13,9 +13,9 @@ class TimeLapse:
         self.necessary_exposure_changes = []
 
     def make_photos(self):
-        print(Fore.YELLOW + "Making Photos..")
+        print(colorize("Making Photos..", PrintColors.YELLOW))
         self.photos = [Photo(path) for path in self.file_paths]
-        print(Fore.GREEN + "Photos Made")
+        print(colorize("Photos Made", PrintColors.GREEN))
 
     def determine_exposure_change_points(self, change_start):
         change_points = [{"index": 0}]
@@ -114,11 +114,11 @@ class TimeLapse:
         return -(math.log2(start) - math.log2(stop))
 
     def save_timelapse_photos(self, args):
-        print(Fore.YELLOW + "Saving Photos..")
+        print(colorize("Saving Photos..", PrintColors.YELLOW))
         with concurrent.futures.ProcessPoolExecutor() as executor:
             save_photo_func_with_args = partial(self.save_timelapse_photo, args=args)
             zip(self.photos, executor.map(save_photo_func_with_args, self.photos))
-        print(Fore.GREEN + "Photos Saved")
+        print(colorize("Photos Saved", PrintColors.GREEN))
 
     @staticmethod
     def save_timelapse_photo(photo, args):
