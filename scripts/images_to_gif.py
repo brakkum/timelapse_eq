@@ -1,10 +1,11 @@
 import imageio
+import sys
 import os
 
-path = input("Input directory of files: ")
+path = sys.argv[1]
 files = os.listdir(path)
 images = []
-for pic in files:
+for pic in sorted(files):
     if os.path.splitext(pic)[1] == ".jpeg":
-        images.append(imageio.imread("{}/{}".format(path, pic)))
-imageio.mimsave("{}/gif.gif".format(path), images, fps=3)
+        images.append(imageio.imread(F"{path}/{pic}"))
+imageio.mimsave(f"{path}/timelapse.gif", images, fps=12)
