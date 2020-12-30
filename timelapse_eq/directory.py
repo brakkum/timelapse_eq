@@ -10,7 +10,7 @@ class Directory:
         self.exists = os.path.isdir(self.path)
 
     def find_photos(self):
-        def is_image(pic): return self.is_image(pic)
+        def is_image(pic): return os.path.splitext(pic)[1].lower() in FILETYPES
         valid_photos = [pic for pic in os.listdir(self.path) if is_image(pic)]
         self.valid_photos = [(self.path + "/" + pic) for pic in valid_photos]
 
@@ -23,7 +23,3 @@ class Directory:
     def make_output_dir(self):
         if not os.path.exists(self.output_path):
             os.mkdir("{0}/new_photos".format(self.path))
-
-    @staticmethod
-    def is_image(pic):
-        return os.path.splitext(pic)[1].lower() in FILETYPES
