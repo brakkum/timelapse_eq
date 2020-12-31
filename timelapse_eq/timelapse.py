@@ -19,11 +19,12 @@ class TimeLapse:
 
     def determine_exposure_change_points(self, change_start):
         change_points = [{"index": 0}]
-        photos = iter(self.photos)
-        current_photo = next(photos)
-        next_photo = next(photos)
 
-        while next_photo is not None:
+        for i, current_photo in enumerate(self.photos):
+            try:
+                next_photo = self.photos[i + 1]
+            except IndexError:
+                break
             if current_photo.shut != next_photo.shut:
                 change_points.append({
                     "index": self.photos.index(next_photo),
@@ -39,12 +40,6 @@ class TimeLapse:
                     "index": self.photos.index(next_photo),
                     "change": "fNum"
                 })
-            current_photo = next_photo
-            try:
-                next_photo = next(photos)
-            except StopIteration:
-                next_photo = None
-                continue
 
         if change_start:
             change_points = self.change_start(change_points)
