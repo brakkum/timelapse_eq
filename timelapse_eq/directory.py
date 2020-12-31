@@ -10,8 +10,8 @@ class Directory:
         self.exists = os.path.isdir(self.path)
 
     def find_photos(self):
-        def is_image(pic): return os.path.splitext(pic)[1].lower() in RAW_FILETYPES
-        valid_photos = [pic for pic in os.listdir(self.path) if is_image(pic)]
+        def is_raw_image(pic): return os.path.splitext(pic)[1].lower() in RAW_FILETYPES
+        valid_photos = [pic for pic in os.listdir(self.path) if is_raw_image(pic)]
         self.valid_photos = [f"{self.path}/{pic}" for pic in valid_photos]
 
     def sort_photos(self):
