@@ -65,11 +65,15 @@ class TimeLapse:
     def determine_necessary_exposure_changes(self):
         necessary_exposure_changes = [0 for _ in range(len(self.photos))]
 
-        change_points = iter(self.change_points)
-        current_change_point = next(change_points)
-        next_change_point = next(change_points)
+        # change_points = iter(self.change_points)
+        # current_change_point = next(change_points)
+        # next_change_point = next(change_points)
 
-        while next_change_point is not None:
+        for i, current_change_point in enumerate(self.change_points):
+            try:
+                next_change_point = self.change_points[i + 1]
+            except IndexError:
+                break
             current_change_index = current_change_point["index"]
             next_change_index = next_change_point["index"]
             method_of_change = next_change_point["change"]
@@ -82,11 +86,6 @@ class TimeLapse:
             for i, change_index in enumerate(range(current_change_index, next_change_index)):
                 necessary_exposure_changes[change_index] = round((increments * i), 3)
 
-            current_change_point = next_change_point
-            try:
-                next_change_point = next(change_points)
-            except StopIteration:
-                next_change_point = None
         self.necessary_exposure_changes = necessary_exposure_changes
 
     def get_method_changed_value(self, i, val):
