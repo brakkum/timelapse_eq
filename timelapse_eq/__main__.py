@@ -20,7 +20,7 @@ parser.add_argument(
     action="store_true"
 )
 parser.add_argument(
-    "--auto_wb",
+    "--auto-wb",
     help="apply auto white balance to photos",
     action="store_true"
 )

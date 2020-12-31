@@ -24,14 +24,14 @@ From there you should be able to use timelapse_eq in bash.
 | `directory`     | The only required argument. This is the path to the photos you want to work with. A "." would be your current directory. |
 | `--start`       | If exposure change in the original photos began after the first photo, this flag will let you select where EV changes began from a list of filenames. |
 | `--width WIDTH` | Where WIDTH is an integer, this will set the width of the output photo files. |
-| `--auto_wb`     | This flag will apply auto-white-balance to the output files |
+| `--auto-wb`     | This flag will apply auto-white-balance to the output files |
 
 ### Sample Usage
 
 Let's take this for example:
 
 ```
-$ timelapse_eq . --auto_wb --width 500 --start
+$ timelapse_eq . --auto-wb --width 500 --start
 ```
 
 What this is saying is:
