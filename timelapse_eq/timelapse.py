@@ -83,8 +83,8 @@ class TimeLapse:
             num_of_photos_in_change = next_change_index - current_change_index
             increments = self.get_increments_for_change(ev_change, num_of_photos_in_change)
 
-            for i, change_index in enumerate(range(current_change_index, next_change_index)):
-                necessary_exposure_changes[change_index] = round((increments * i), 3)
+            for index, change_index in enumerate(range(current_change_index, next_change_index)):
+                necessary_exposure_changes[change_index] = round((increments * index), 3)
 
         self.necessary_exposure_changes = necessary_exposure_changes
 
