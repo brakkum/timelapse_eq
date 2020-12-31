@@ -85,14 +85,12 @@ class TimeLapse:
         self.necessary_exposure_changes = necessary_exposure_changes
 
     def get_method_changed_value(self, i, val):
-        if val == "shut":
-            return self.photos[i].shut
-        elif val == "iso":
-            return self.photos[i].iso
-        elif val == "fNum":
-            return self.photos[i].fNum
-        else:
-            return
+        photo_values = {
+            "shut": self.photos[i].shut,
+            "iso": self.photos[i].iso,
+            "fNum": self.photos[i].fNum,
+        }
+        return photo_values[val]
 
     def update_photos(self):
         for i, change in enumerate(self.necessary_exposure_changes):
