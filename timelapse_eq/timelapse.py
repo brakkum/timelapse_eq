@@ -63,7 +63,7 @@ class TimeLapse:
         return change_points
 
     def determine_necessary_exposure_changes(self):
-        necessary_exposure_changes = [0] * len(self.photos)
+        necessary_exposure_changes = [0 for _ in range(len(self.photos))]
 
         change_points = iter(self.change_points)
         current_change_point = next(change_points)
